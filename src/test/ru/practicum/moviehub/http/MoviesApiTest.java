@@ -114,7 +114,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void PostMovies_returnsMovie() throws Exception {
+    void postMovies_returnsMovie() throws Exception {
         Movie movie = new Movie(1, "Вот такие фа", 2000);
         String jsonData = gson.toJson(movie);
 
@@ -141,7 +141,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void PostMovies_returnsErrorTitleNull() throws Exception {
+    void postMovies_returnsErrorTitleNull() throws Exception {
         Movie movie = new Movie(1, "", 2000);
         String jsonData = gson.toJson(movie);
 
@@ -161,7 +161,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void PostMovies_returnsErrorTitleLengthExpection() throws Exception {
+    void postMovies_returnsErrorTitleLengthExpection() throws Exception {
         Movie movie = new Movie(1, "-".repeat(1000), 2000);
         String jsonData = gson.toJson(movie);
 
@@ -181,7 +181,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void PostMovies_returnsErrorYear() throws Exception {
+    void postMovies_returnsErrorYear() throws Exception {
         Movie movie = new Movie(1, "title", 1887);
         String jsonData = gson.toJson(movie);
 
@@ -215,7 +215,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void PostMovies_returnsErrorJson() throws Exception {
+    void postMovies_returnsErrorJson() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies"))
                 .POST(HttpRequest.BodyPublishers.ofString("фа"))
@@ -230,7 +230,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsMovie() throws Exception {
+    void getMovies_returnsMovie() throws Exception {
 
         Movie movie = new Movie(1, "Вот такие фа", 2000);
 
@@ -265,7 +265,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsErrorNotFoundMovie() throws Exception {
+    void getMovies_returnsErrorNotFoundMovie() throws Exception {
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies/1"))
                 .GET()
@@ -280,7 +280,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsErrorIdIsNotNumber() throws Exception {
+    void getMovies_returnsErrorIdIsNotNumber() throws Exception {
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies/asdasd"))
                 .GET()
@@ -295,7 +295,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void DeleteMovies_returnsMovie() throws Exception {
+    void deleteMovies_returnsMovie() throws Exception {
 
         Movie movie = new Movie(1, "Вот такие фа", 2000);
 
@@ -325,7 +325,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void DeleteMovies_returnsErrorNotFoundMovie() throws Exception {
+    void deleteMovies_returnsErrorNotFoundMovie() throws Exception {
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies/1"))
                 .GET()
@@ -340,7 +340,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void DeleteMovies_returnsErrorIdIsNotNumber() throws Exception {
+    void deleteMovies_returnsErrorIdIsNotNumber() throws Exception {
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies/asdasd"))
                 .GET()
@@ -355,7 +355,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsMovieByYear() throws Exception {
+    void getMovies_returnsMovieByYear() throws Exception {
 
         List<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "Вот такие фа", 2000));
@@ -391,7 +391,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsMovieByYearNull() throws Exception {
+    void getMovies_returnsMovieByYearNull() throws Exception {
 
         List<Movie> movies = new ArrayList<>();
         movies.add(new Movie(1, "Вот такие фа", 2000));
@@ -428,7 +428,7 @@ public class MoviesApiTest {
     }
 
     @Test
-    void GetMovies_returnsMovieByYearErrorYearNotNumber() throws Exception {
+    void getMovies_returnsMovieByYearErrorYearNotNumber() throws Exception {
 
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(BASE + "/movies?year=sasa"))
