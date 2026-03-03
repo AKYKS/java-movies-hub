@@ -27,8 +27,8 @@ public class MoviesStore {
 
     public void addMovie(String title, int year) {
         int id = movies.size() + 1;
-        boolean Found = true;
-        while (Found) {
+        boolean found = true;
+        while (found) {
             int finalId = id;
             long count = movies.stream()
                     .filter(movie -> movie.getId() == finalId)
@@ -36,7 +36,7 @@ public class MoviesStore {
             if (count > 0) {
                 id++;
             } else {
-                Found = false;
+                found = false;
             }
         }
         Movie movie = new Movie(id, title, year);
