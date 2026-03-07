@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesStore {
-    List<Movie> movies;
+    private List<Movie> movies;
 
     public MoviesStore() {
         this.movies = new ArrayList<>();

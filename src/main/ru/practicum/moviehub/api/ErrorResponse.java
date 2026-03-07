@@ -3,8 +3,8 @@ package ru.practicum.moviehub.api;
 import java.util.Arrays;
 
 public class ErrorResponse {
-    String error;
-    String[] detail;
+    private String error;
+    private String[] detail;
 
     public ErrorResponse(String error, String[] detail) {
         this.error = error;
